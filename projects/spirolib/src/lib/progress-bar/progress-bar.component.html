@@ -1,0 +1,9 @@
+<p>progress-bar works!</p>
+
+<div class="progress">
+  @if (displayValue) {
+    <div class="progress-bar" role="progressbar" [style.width]="progress + '%'" [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100">{{ progress }}%</div>
+  } @else {
+    <div class="progress-bar" role="progressbar" [style.width]="progress + '%'" [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100"></div>
+  }
+</div>

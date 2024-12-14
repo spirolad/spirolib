@@ -3,5 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "spirolib": {
+      "projectType": "library",
+      "root": "projects/spirolib",
+      "sourceRoot": "projects/spirolib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/spirolib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/spirolib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/spirolib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/spirolib/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
   }
 }

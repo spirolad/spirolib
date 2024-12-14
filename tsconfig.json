@@ -17,6 +17,11 @@
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
+    "paths": {
+      "spirolib": [
+        "./dist/spirolib"
+      ]
+    },
     "module": "ES2022",
     "lib": [
       "ES2022",
