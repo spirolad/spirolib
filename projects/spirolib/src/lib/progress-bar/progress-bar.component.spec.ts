@@ -20,4 +20,17 @@ describe('ProgressBarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have progress 0', () => {
+    expect(component.progress).toBe(0);
+  });
+
+  it('should have displayValue false', () => {
+    expect(component.displayValue).toBe(false);
+  });
+
+  it('should have mode determinate', () => {
+    expect(component.mode).toBe('determinate');
+  });
+
 });
