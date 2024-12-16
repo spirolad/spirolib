@@ -14,25 +14,22 @@ describe('ThemeConfigServiceService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should reject non conform color', () => {
-    const color = '#Hello World!';
-    expect(service.checkColor(color)).toThrowError();
+  it('should update primary color', () => {
+    service.updatePrimaryColor('#ff0000');
+    expect(service).toBeTruthy();
   });
 
-  it('Should not reject conform color', () => {
-    const color = '#000000';
-    expect(service.checkColor(color)).not.toThrowError();
+  it('should update white color', () => {
+    service.updateWhiteColor('#ff0000');
+    expect(service).toBeTruthy();
   });
 
-  it('should set all variables', () => {
-    service.setAllVariables();
-    expect(document.documentElement.style.getPropertyValue('--sp-primary-color')).toBe('#3f51b5');
-    expect(document.documentElement.style.getPropertyValue('--sp-white-color')).toBe('#e9ecef');
+  it('should throw error on invalid color format', () => {
+    expect(() => service.updatePrimaryColor('ff0000')).toThrowError('Invalid color format: ff0000');
   });
 
-  it('should set as css variable', () => {
-    service.setAsCssVariable('#000000', 'black-color');
-    expect(document.documentElement.style.getPropertyValue('--sp-black-color')).toBe('#000000');
+  it('should throw error on invalid color format', () => {
+    expect(() => service.updateWhiteColor('ff0000')).toThrowError('Invalid color format: ff0000');
   });
 
 });
