@@ -1,0 +1,21 @@
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .spinner {
+    border-radius: 50%;
+    border-style: solid;
+    animation: rotate 1.5s linear infinite;
+    border-color: #3f51b5 transparent transparent transparent;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

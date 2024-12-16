@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/spirolib",
       "sourceRoot": "projects/spirolib/src",
-      "prefix": "lib",
+      "prefix": "sp",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
