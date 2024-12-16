@@ -1,5 +1,9 @@
 @if (mode === 'determinate'){
-  <div class="progress" [ngClass]="{'text-height': displayValue}">
+  <div
+    class="progress"
+    [ngClass]="{'text-height': displayValue}"
+    [style.width]="_width"
+  >
     <div class="progress-bar" role="progressbar" [style.width]="progress + '%'" [attr.aria-valuenow]="progress"
          aria-valuemin="0" aria-valuemax="100"></div>
     @if (displayValue) {

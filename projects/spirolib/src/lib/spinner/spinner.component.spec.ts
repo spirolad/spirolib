@@ -20,4 +20,8 @@ describe('SpinnerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a diameter of 10', () => {
+    expect(component.diameter).toBe(10);
+  });
 });

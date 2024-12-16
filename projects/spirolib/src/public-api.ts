@@ -10,3 +10,4 @@ export * from './lib/spinner/spinner.component';
 // Services
 
 export * from "./service/theme-config-service.service";
+export * from "./service/css-validation.service";
