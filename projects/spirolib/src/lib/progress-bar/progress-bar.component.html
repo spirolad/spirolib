@@ -1,8 +1,10 @@
 @if (mode === 'determinate'){
-  <div class="progress">
+  <div class="progress" [ngClass]="{'text-height': displayValue}">
     <div class="progress-bar" role="progressbar" [style.width]="progress + '%'" [attr.aria-valuenow]="progress"
          aria-valuemin="0" aria-valuemax="100"></div>
-    <div class="progress-text" *ngIf="displayValue">{{ progress }}%</div>
+    @if (displayValue) {
+      <div class="progress-text">{{ progress }}%</div>
+    }
   </div>
 }
 @else if (mode === 'indeterminate'){

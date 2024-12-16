@@ -1,12 +1,12 @@
 import {Component, Input} from '@angular/core';
-import {NgIf} from "@angular/common";
+import {NgClass} from "@angular/common";
 
 type ProgressBarMode = 'determinate' | 'indeterminate';
 
 @Component({
     selector: 'sp-progress-bar',
   imports: [
-    NgIf
+    NgClass
   ],
     templateUrl: './progress-bar.component.html',
     styleUrl: './progress-bar.component.css'
