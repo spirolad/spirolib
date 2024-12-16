@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class CssValidationService {
 
   isValidCSSMeasurement(value: string): boolean {
-    const regex = /^\d+(\.\d+)?(px|em|rem|vw|vh|%|cm|mm|in|pt|pc)?$/;
+    const regex = /^\d+(\.\d+)?(px|em|rem|vw|vh|%|cm|mm|in|pt|pc)$/;
     return regex.test(value);
   }
 
