@@ -13,6 +13,6 @@
 }
 @else if (mode === 'indeterminate'){
   <div class="progress">
-    <div class="progress-bar indeterminate"></div>
+    <div class="progress-bar indeterminate" [style.animation-duration]="_animationDuration + 's'"></div>
   </div>
 }

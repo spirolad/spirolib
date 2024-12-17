@@ -1,27 +1,28 @@
-# Library
+# SpiroLib
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+This library aims to provide basic components and services for the development of web applications with Angular.
 
-## Development server
+Moreover these components tends to be easily customizable and reusable.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Installation
 
-## Code scaffolding
+To install this library, run:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```npm i spirolib```
 
-## Build
+## Components
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **sp-progress-bar**: A simple progress bar component.
+- **sp-spinner**: A simple spinner component.
 
-## Running unit tests
+## Services
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **ThemeConfigServiceService**: A service to manage the theme of the application.
 
-## Running end-to-end tests
+## Documentation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+For more information about the components and services, please refer to the [documentation](https://material.angular.io/)
 
-## Further help
+## Usage
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+WIP :construction:

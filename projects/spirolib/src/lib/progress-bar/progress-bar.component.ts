@@ -25,6 +25,14 @@ export class ProgressBarComponent {
   }
   protected _width = '100%';
 
+  @Input()
+  set animationDuration(value: number) {
+    if (value > 0) {
+      this._animationDuration = value;
+    }
+  }
+  protected _animationDuration = 1.5;
+
   constructor(private cssValidationService: CssValidationService) { }
 
 }
