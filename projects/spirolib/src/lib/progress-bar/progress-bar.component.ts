@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {NgClass} from "@angular/common";
-import { CssValidationService } from '../../service/css-validation.service';
+import { _CssValidationService } from '../../service/css-validation.service';
 
 type ProgressBarMode = 'determinate' | 'indeterminate';
 
@@ -33,6 +33,6 @@ export class ProgressBarComponent {
   }
   protected _animationDuration = 1.5;
 
-  constructor(private cssValidationService: CssValidationService) { }
+  constructor(private cssValidationService: _CssValidationService) { }
 
 }

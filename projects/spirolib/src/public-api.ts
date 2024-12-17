@@ -6,6 +6,7 @@
 
 export * from './lib/progress-bar/progress-bar.component';
 export * from './lib/spinner/spinner.component';
+export * from './lib/divider/divider.component';
 
 // Services
 
