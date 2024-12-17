@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CssValidationService } from './css-validation.service';
+import { _CssValidationService } from './css-validation.service';
 
 describe('CssValidationService', () => {
-  let service: CssValidationService;
+  let service: _CssValidationService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CssValidationService);
+    service = TestBed.inject(_CssValidationService);
   });
 
   it('should be created', () => {
