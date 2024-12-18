@@ -15,6 +15,11 @@ export class _CustomColorServiceMock {
     'fuchsia': '#ff00ff',
     'customColor': '#ff00ff',
   };
+
+  isCustomColor(name: string): boolean {
+    return Object.prototype.hasOwnProperty.call(this.customColor, name);
+  }
+
 }
 
 describe('CssValidationService', () => {

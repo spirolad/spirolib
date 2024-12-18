@@ -48,7 +48,7 @@ describe('CustomColorService', () => {
     expect(service.getCustomColor('maroon')).toBe('#800000');
   });
 
-  it('should get the name of an non-existent color', () => {
-    expect(service.getCustomColor('customColor')).toBe('customColor');
+  it('should not get custom color', () => {
+    expect(service.getCustomColor('customColor')).toBeUndefined();
   });
 });
