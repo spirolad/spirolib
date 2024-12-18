@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-
-const colorRegEx = /^#[0-9a-f]{6}$/i;
-const prefixLib = '--sp-';
-
+import {_CssValidationService} from "./css-validation.service";
 @Injectable({
   providedIn: 'root'
 })
@@ -10,37 +7,42 @@ export class ThemeConfigServiceService {
 
   private _primaryColor = '#007bff';
   private _whiteColor = '#e9ecef';
+  private _absoluteWhiteColor = '#ffffff';
 
-  constructor() {
-    this.setAllVariables();
+  constructor(private _cssValidationService: _CssValidationService){}
+
+  get primaryColor(): string {
+    return this._primaryColor;
+  }
+
+  get whiteColor(): string {
+    return this._whiteColor;
+  }
+
+  get absoluteWhiteColor(): string {
+    return this._absoluteWhiteColor;
   }
 
   private checkColor(color?: string): void {
-    if (color && !colorRegEx.test(color)) {
+    if (color && !this._cssValidationService.isValidCSSColor(color)) {
       throw new Error('Invalid color format: ' + color);
     }
-  }
-
-  private setAllVariables(): void {
-    this.setAsCssVariable(this._primaryColor, 'primary-color');
-    this.setAsCssVariable(this._whiteColor, 'white-color');
-  }
-
-  private setAsCssVariable(color: string, variableName: string): void {
-    this.checkColor(color);
-    document.documentElement.style.setProperty(`${prefixLib}${variableName}`, color);
   }
 
   public updatePrimaryColor(color: string): void {
     this.checkColor(color);
     this._primaryColor = color;
-    this.setAsCssVariable(this._primaryColor, 'primary-color');
   }
 
   public updateWhiteColor(color: string): void {
     this.checkColor(color);
     this._whiteColor = color;
-    this.setAsCssVariable(this._whiteColor, 'white-color');
   }
+
+  public updateAbsoluteWhiteColor(color: string): void {
+    this.checkColor(color);
+    this._absoluteWhiteColor = color;
+  }
+
 }
 

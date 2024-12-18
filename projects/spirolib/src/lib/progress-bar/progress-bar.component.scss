@@ -3,10 +3,7 @@
 }
 
 .progress {
-  background-color: var(--sp-white-color);
-  border-radius: 0.25rem;
   overflow: hidden;
-  height: 0.5rem;
   position: relative;
   display: flex;
   align-items: center;
@@ -14,7 +11,6 @@
 
   .progress-bar {
     height: 100%;
-    background-color: var(--sp-primary-color);
     transition: width 0.6s ease;
     position: absolute;
     top: 0;
@@ -22,16 +18,13 @@
   }
 
   .progress-bar.indeterminate {
-    animation: indeterminate-animation 1.5s infinite;
-    background-color: var(--sp-primary-color);
-    width: 20%;
+    animation: indeterminate-animation infinite;
+    animation-duration: 1.5s;
   }
 
   .progress-text {
     position: relative;
-    z-index: 2;
-    color: #fff;
-    font-weight: bold;
+    z-index: 999;
   }
 }
 

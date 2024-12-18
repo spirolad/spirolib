@@ -3,16 +3,35 @@
     class="progress"
     [ngClass]="{'text-height': displayValue}"
     [style.width]="_width"
+    [style.border-radius]="_borderRadius"
+    [style.height]="_height"
+    [style.background-color]="_backgroundColor"
   >
-    <div class="progress-bar" role="progressbar" [style.width]="progress + '%'" [attr.aria-valuenow]="progress"
-         aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="progress-bar"
+         role="progressbar"
+         [style.width]="progress + '%'"
+         [attr.aria-valuenow]="progress"
+         [style.background-color]="_barColor"
+         aria-valuemin="0"
+         aria-valuemax="100">
+    </div>
     @if (displayValue) {
-      <div class="progress-text">{{ progress }}%</div>
+      <div
+        class="progress-text"
+        [style.color]="_textColor"
+        [style]="_fontWeight"
+      >{{ progress }}%</div>
     }
   </div>
 }
 @else if (mode === 'indeterminate'){
   <div class="progress">
-    <div class="progress-bar indeterminate" [style.animation-duration]="_animationDuration + 's'"></div>
+    <div
+      class="progress-bar indeterminate"
+      [style.animation-duration]="_animationDuration + 's'"
+      [style.background-color]="_barColor"
+      [style.width]="_indeterminateBarWidth"
+      [style.font-size]="_fontSize"
+    ></div>
   </div>
 }

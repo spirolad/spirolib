@@ -20,4 +20,8 @@ describe('DividerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have type property', () => {
+    expect(component.type).toBe('horizontal');
+  });
 });

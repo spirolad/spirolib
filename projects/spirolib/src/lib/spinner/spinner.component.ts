@@ -11,5 +11,4 @@ import {NgStyle} from "@angular/common";
 })
 export class SpinnerComponent {
   @Input() diameter = 10;
-
 }
