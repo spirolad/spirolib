@@ -3,6 +3,7 @@ import {NgClass} from "@angular/common";
 import { _CssValidationService } from '../../service/css-validation.service';
 import {ThemeConfigServiceService} from "../../service/theme-config-service.service";
 import {ProgressBarThemeService} from "./progress-bar-theme.service";
+import {ValidatableComponent} from "../ValidatableComponent";
 
 type ProgressBarMode = 'determinate' | 'indeterminate';
 
@@ -14,7 +15,7 @@ type ProgressBarMode = 'determinate' | 'indeterminate';
     templateUrl: './progress-bar.component.html',
     styleUrl: './progress-bar.component.scss'
 })
-export class ProgressBarComponent {
+export class ProgressBarComponent extends ValidatableComponent {
 
   // Properties
   protected _width = '100%';
@@ -26,99 +27,79 @@ export class ProgressBarComponent {
   protected _textColor: string;
   protected _fontWeight = 'bold';
   protected _indeterminateBarWidth = '20%';
-  protected _fontSize: string | undefined;
+  protected _fontSize?: string;
 
   // Inputs
   @Input() progress = 0;
   @Input() displayValue = false;
   @Input() mode: ProgressBarMode = 'determinate';
 
+  // Dynamic setters
   @Input()
   set width(value: string) {
-    if (this.cssValidationService.isValidCSSMeasurement(value)) {
-      this._width = value;
-    }
+    this.validateAndSetProperty('_width', value, this.cssValidationService.isValidCSSMeasurement);
   }
+
   @Input()
   set animationDuration(value: number) {
-    if (value > 0) {
-      this._animationDuration = value;
-    }
+    if (value > 0) this._animationDuration = value;
   }
 
   @Input()
   set borderRadius(value: string) {
-    if (this.cssValidationService.isValidCSSMeasurement(value)) {
-      this._borderRadius = value;
-    }
+    this.validateAndSetProperty('_borderRadius', value, this.cssValidationService.isValidCSSMeasurement);
   }
 
   @Input()
   set height(value: string) {
-    if (this.cssValidationService.isValidCSSMeasurement(value)) {
-      this._height = value;
-    }
+    this.validateAndSetProperty('_height', value, this.cssValidationService.isValidCSSMeasurement);
   }
 
   @Input()
-  set backgroundColor(value: string)
-  {
-    if (this.cssValidationService.isValidCSSColor(value)) {
-      this._backgroundColor = value;
-    }
+  set backgroundColor(value: string) {
+    this.validateAndSetProperty('_backgroundColor', value, this.cssValidationService.isValidCSSColor);
   }
 
   @Input()
-  set barColor(value: string)
-  {
-    if (this.cssValidationService.isValidCSSColor(value)) {
-      this._barColor = value;
-    }
+  set barColor(value: string) {
+    this.validateAndSetProperty('_barColor', value, this.cssValidationService.isValidCSSColor);
   }
 
   @Input()
-  set textColor(value: string)
-  {
-    if (this.cssValidationService.isValidCSSColor(value)) {
-      this._textColor = value;
-    }
+  set textColor(value: string) {
+    this.validateAndSetProperty("_textColor", value, this.cssValidationService.isValidCSSColor);
   }
 
   @Input()
-  set fontWeight(value: string)
-  {
-    if (this.cssValidationService.isValidCSSFontWeight(value)) {
-      this._fontWeight = value;
-    }
+  set fontWeight(value: string) {
+    this.validateAndSetProperty('_fontWeight', value, this.cssValidationService.isValidCSSFontWeight);
   }
 
   @Input()
-  set fontSize(value: string)
-  {
-    if (this.cssValidationService.isValidCSSMeasurement(value)) {
-      this._fontSize = value;
-    }
+  set fontSize(value: string) {
+    this.validateAndSetProperty('_fontSize', value, this.cssValidationService.isValidCSSMeasurement);
   }
 
   @Input()
-  set indeterminateBarWidth(value: string)
-  {
-    if (this.cssValidationService.isValidCSSMeasurement(value)) {
-      this._indeterminateBarWidth = value;
-    }
+  set indeterminateBarWidth(value: string) {
+    this.validateAndSetProperty('_indeterminateBarWidth', value, this.cssValidationService.isValidCSSMeasurement);
   }
 
-  constructor(private cssValidationService: _CssValidationService, private themeConfigServiceService: ThemeConfigServiceService, private progessBarTheme: ProgressBarThemeService) {
-    this._backgroundColor = progessBarTheme.backgroundColor ?? themeConfigServiceService.whiteColor;
-    this._barColor = progessBarTheme.barColor ?? themeConfigServiceService.primaryColor;
-    this._textColor = progessBarTheme.textColor ?? themeConfigServiceService.absoluteWhiteColor;
-    this._width = progessBarTheme.width ?? this._width;
-    this._animationDuration = progessBarTheme.animationDuration ?? this._animationDuration;
-    this._borderRadius = progessBarTheme.borderRadius ?? this._borderRadius;
-    this._height = progessBarTheme.height ?? this._height;
-    this._fontWeight = progessBarTheme.fontWeight ?? this._fontWeight;
-    this._indeterminateBarWidth = progessBarTheme.indeterminateBarWidth ?? this._indeterminateBarWidth;
-    this._fontSize = progessBarTheme.fontSize ?? this._fontSize;
+  constructor(
+    private cssValidationService: _CssValidationService,
+    private themeConfigService: ThemeConfigServiceService,
+    private progressBarTheme: ProgressBarThemeService
+  ) {
+    super();
+    this._backgroundColor = themeConfigService.translateColor(progressBarTheme.backgroundColor ?? themeConfigService.whiteColor);
+    this._barColor = themeConfigService.translateColor(progressBarTheme.barColor ?? themeConfigService.primaryColor);
+    this._textColor = themeConfigService.translateColor(progressBarTheme.textColor ?? themeConfigService.absoluteWhiteColor);
+    this._width = progressBarTheme.width ?? this._width;
+    this._animationDuration = progressBarTheme.animationDuration ?? this._animationDuration;
+    this._borderRadius = progressBarTheme.borderRadius ?? this._borderRadius;
+    this._height = progressBarTheme.height ?? this._height;
+    this._fontWeight = progressBarTheme.fontWeight ?? this._fontWeight;
+    this._indeterminateBarWidth = progressBarTheme.indeterminateBarWidth ?? this._indeterminateBarWidth;
+    this._fontSize = progressBarTheme.fontSize ?? this._fontSize;
   }
-
 }

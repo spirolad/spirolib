@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import {ThemeConfigServiceService} from "./theme-config-service.service";
 
 const cssValidator = /^\d+(\.\d+)?(px|em|rem|vw|vh|%|cm|mm|in|pt|pc)$/;
-const colorValidator = /^#[0-9A-F]{6}$/i;
+const colorValidator = /^#([0-9A-F]{3}|[0-9A-F]{6})$/i;
 const fontValidator = /^(normal|italic|oblique|initial|inherit)$/;
 
 @Injectable({
@@ -14,11 +15,14 @@ export class _CssValidationService {
   }
 
   isValidCSSColor(value: string): boolean {
-    return colorValidator.test(value);
+    return colorValidator.test(value) || this.themeConfigServiceService.isCustomColor(value);
   }
 
   isValidCSSFontWeight(value: string): boolean {
     return fontValidator.test(value);
+  }
+
+  constructor(private themeConfigServiceService: ThemeConfigServiceService) {
   }
 
 }
