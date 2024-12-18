@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {_CustomColorService} from "./custom-color.service";
 
 const cssValidator = /^\d+(\.\d+)?(px|em|rem|vw|vh|%|cm|mm|in|pt|pc)$/;
-const colorValidator = /^#([0-9A-F]{3}|[0-9A-F]{6})$/i;
+const colorValidator = /^(#([0-9A-F]{3}|[0-9A-F]{6})|rgb([0-9]+,[0-9]+,[0,9]+(,[0-9]+)?))$/i;
 const fontValidator = /^(normal|italic|oblique|initial|inherit)$/;
 
 @Injectable({

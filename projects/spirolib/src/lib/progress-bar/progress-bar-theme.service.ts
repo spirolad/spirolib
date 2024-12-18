@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {_CssValidationService} from "../../service/css-validation.service";
+import {ValidatableComponent} from "../ValidatableComponent";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProgressBarThemeService {
+export class ProgressBarThemeService extends ValidatableComponent {
 
   private _width: string | undefined;
   private _animationDuration: number | undefined;
@@ -17,66 +18,49 @@ export class ProgressBarThemeService {
   private _indeterminateBarWidth: string | undefined;
   private _fontSize: string | undefined;
 
-  constructor(private cssValidationService: _CssValidationService) { }
+  constructor(private cssValidationService: _CssValidationService) {
+    super();
+  }
 
+  // Dynamic setters
   set width(value: string) {
-    if (this.cssValidationService.isValidCSSMeasurement(value)) {
-      this._width = value;
-    }
+    this.validateAndSetProperty('_width', value, this.cssValidationService.isValidCSSMeasurement);
   }
 
   set animationDuration(value: number) {
-    if (value > 0) {
-      this._animationDuration = value;
-    }
+    if (value > 0) this._animationDuration = value;
   }
 
   set borderRadius(value: string) {
-    if (this.cssValidationService.isValidCSSMeasurement(value)) {
-      this._borderRadius = value;
-    }
+    this.validateAndSetProperty('_borderRadius', value, this.cssValidationService.isValidCSSMeasurement);
   }
 
   set height(value: string) {
-    if (this.cssValidationService.isValidCSSMeasurement(value)) {
-      this._height = value;
-    }
+    this.validateAndSetProperty('_height', value, this.cssValidationService.isValidCSSMeasurement);
   }
 
   set backgroundColor(value: string) {
-    if (this.cssValidationService.isValidCSSColor(value)) {
-      this._backgroundColor = value;
-    }
+    this.validateAndSetProperty('_backgroundColor', value, this.cssValidationService.isValidCSSColor);
   }
 
   set barColor(value: string) {
-    if (this.cssValidationService.isValidCSSColor(value)) {
-      this._barColor = value;
-    }
+    this.validateAndSetProperty('_barColor', value, this.cssValidationService.isValidCSSColor);
   }
 
   set textColor(value: string) {
-    if (this.cssValidationService.isValidCSSColor(value)) {
-      this._textColor = value;
-    }
+    this.validateAndSetProperty("_textColor", value, this.cssValidationService.isValidCSSColor);
   }
 
   set fontWeight(value: string) {
-    if (this.cssValidationService.isValidCSSFontWeight(value)) {
-      this._fontWeigh = value;
-    }
-  }
-
-  set indeterminateBarWidth(value: string) {
-    if (this.cssValidationService.isValidCSSMeasurement(value)) {
-      this._indeterminateBarWidth = value;
-    }
+    this.validateAndSetProperty('_fontWeight', value, this.cssValidationService.isValidCSSFontWeight);
   }
 
   set fontSize(value: string) {
-    if (this.cssValidationService.isValidCSSMeasurement(value)) {
-      this._fontSize = value;
-    }
+    this.validateAndSetProperty('_fontSize', value, this.cssValidationService.isValidCSSMeasurement);
+  }
+
+  set indeterminateBarWidth(value: string) {
+    this.validateAndSetProperty('_indeterminateBarWidth', value, this.cssValidationService.isValidCSSMeasurement);
   }
 
 }
