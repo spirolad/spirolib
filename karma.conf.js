@@ -3,7 +3,13 @@ module.exports = function (config) {
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     browsers: ['ChromeHeadless'],
     singleRun: true,
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
+    preprocessors: {
+      'src/**/*.ts': ['coverage']
+    },
+    coverageReporter: {
+      type: 'text-summary',
+    },
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
