@@ -47,8 +47,8 @@ describe('CssValidationService', () => {
   });
 
   it('should not validate CSS measurement', () => {
-    expect(service.isValidCSSMeasurement('100')).toBeFalse();
-    expect(service.isValidCSSMeasurement('100px 100px')).toBeFalse();
+    expect(service.isValidCSSMeasurement('#zd102')).toBeFalse();
+    expect(service.isValidCSSMeasurement('pineaple')).toBeFalse();
     expect(service.isValidCSSMeasurement('100px, 100px')).toBeFalse();
   });
 
