@@ -1,35 +1,17 @@
 import { Injectable } from '@angular/core';
 import {_CssValidationService} from "./css-validation.service";
+import {_CustomColorService} from "./custom-color.service";
+
 @Injectable({
   providedIn: 'root'
 })
-export class ThemeConfigServiceService {
-
-  private customColor: Record<string, string> = {
-    'maroon': '#800000',
-    'red': '#ff0000',
-    'orange': '#ffa500',
-    'yellow': '#ffff00',
-    'olive': '#808000',
-    'purple': '#800080',
-    'fuchsia': '#ff00ff',
-    'white': '#ffffff',
-    'lime': '#00ff00',
-    'green': '#008000',
-    'navy': '#000080',
-    'blue': '#0000ff',
-    'aqua': '#00ffff',
-    'teal': '#008080',
-    'black': '#000000',
-    'silver': '#c0c0c0',
-    'gray': '#808080',
-  };
+export class ThemeConfigService {
 
   private _primaryColor = '#007bff';
   private _whiteColor = '#e9ecef';
   private _absoluteWhiteColor = '#ffffff';
 
-  constructor(private _cssValidationService: _CssValidationService){}
+  constructor(private _cssValidationService: _CssValidationService, private customColorService: _CustomColorService){}
 
   get primaryColor(): string {
     return this._primaryColor;
@@ -74,7 +56,7 @@ export class ThemeConfigServiceService {
     * @returns true if color is custom color
    */
   isCustomColor(name: string): boolean {
-    return Object.prototype.hasOwnProperty.call(this.customColor, name);
+    return this.customColorService.isCustomColor(name);
   }
 
   /*
@@ -84,7 +66,7 @@ export class ThemeConfigServiceService {
    */
   addCustomColor(name: string, color: string): void {
     this.checkColor(color);
-    this.customColor[name] = color;
+    this.customColorService.addCustomColor(name, color);
   }
 
   /*
@@ -93,7 +75,7 @@ export class ThemeConfigServiceService {
     * @returns hex color code or color name if not found
    */
   translateColor(name: string): string {
-    return this.customColor[name] ?? name;
+    return this.customColorService.getCustomColor(name) || name;
   }
 
 }

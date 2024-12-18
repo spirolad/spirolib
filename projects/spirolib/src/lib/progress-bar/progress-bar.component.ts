@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {NgClass} from "@angular/common";
 import { _CssValidationService } from '../../service/css-validation.service';
-import {ThemeConfigServiceService} from "../../service/theme-config-service.service";
+import {ThemeConfigService} from "../../service/theme-config.service";
 import {ProgressBarThemeService} from "./progress-bar-theme.service";
 import {ValidatableComponent} from "../ValidatableComponent";
 
@@ -87,7 +87,7 @@ export class ProgressBarComponent extends ValidatableComponent {
 
   constructor(
     private cssValidationService: _CssValidationService,
-    private themeConfigService: ThemeConfigServiceService,
+    private themeConfigService: ThemeConfigService,
     private progressBarTheme: ProgressBarThemeService
   ) {
     super();
