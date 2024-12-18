@@ -8,7 +8,11 @@ module.exports = function (config) {
       'src/**/*.ts': ['coverage']
     },
     coverageReporter: {
-      type: 'text-summary',
+      dir: require('path').join(__dirname, './coverage'),
+      subdir: '.',
+      reporters: [
+        { type: 'text-summary' },
+      ]
     },
     plugins: [
       require('karma-jasmine'),
