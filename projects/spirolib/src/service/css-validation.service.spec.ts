@@ -55,7 +55,7 @@ describe('CssValidationService', () => {
   it('should validate CSS color', () => {
     expect(service.isValidCSSColor('#000')).toBeTrue();
     expect(service.isValidCSSColor('#000000')).toBeTrue();
-    expect(service.isValidCSSColor('black')).toBeTrue();
+    expect(service.isValidCSSColor('red')).toBeTrue();
     expect(service.isValidCSSColor('rgb(0,0,0)')).toBeTrue();
     expect(service.isValidCSSColor('rgba(0,0,0,0)')).toBeTrue();
   });
