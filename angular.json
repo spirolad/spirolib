@@ -29,6 +29,7 @@
           "options": {
             "karmaConfig": "karma.conf.js",
             "tsConfig": "projects/spirolib/tsconfig.spec.json",
+            "codeCoverage": true,
             "polyfills": [
               "zone.js",
               "zone.js/testing"
