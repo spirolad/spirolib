@@ -36,7 +36,7 @@ jobs:
       - name: Start Xvfb
         run: |
           export DISPLAY=:99
-          Xvfb :99 -screen 0 1920x1080x16 &
+          Xvfb :99 -screen 0 1920x1080x16 &é
 
       - run: npm ci
 

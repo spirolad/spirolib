@@ -41,10 +41,6 @@ export class ThemeConfigService {
     this._whiteColor = color;
   }
 
-  /*
-    * Update absolute white color
-    * @param color - hex color code
-   */
   public updateAbsoluteWhiteColor(color: string): void {
     this.checkColor(color);
     this._absoluteWhiteColor = color;
