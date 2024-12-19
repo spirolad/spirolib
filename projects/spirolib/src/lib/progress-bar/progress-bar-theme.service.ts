@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {_CssValidationService} from "../../service/css-validation.service";
+import {_CssValidationService} from "../../service/css-validation/css-validation.service";
 import {ValidatableComponent} from "../ValidatableComponent";
 
 @Injectable({

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {_CssValidationService} from "./css-validation.service";
-import {_CustomColorService} from "./custom-color.service";
+import {_CssValidationService} from "../css-validation/css-validation.service";
+import {_CustomColorService} from "../custom-color/custom-color.service";
 
 @Injectable({
   providedIn: 'root'

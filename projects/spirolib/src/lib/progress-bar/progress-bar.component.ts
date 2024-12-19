@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {NgClass} from "@angular/common";
-import { _CssValidationService } from '../../service/css-validation.service';
-import {ThemeConfigService} from "../../service/theme-config.service";
+import { _CssValidationService } from '../../service/css-validation/css-validation.service';
+import {ThemeConfigService} from "../../service/theme-config/theme-config.service";
 import {ProgressBarThemeService} from "./progress-bar-theme.service";
 import {ValidatableComponent} from "../ValidatableComponent";
 

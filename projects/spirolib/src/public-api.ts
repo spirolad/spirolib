@@ -10,5 +10,5 @@ export * from './lib/divider/divider.component';
 
 // Services
 
-export * from "./service/theme-config.service";
-export * from "./service/css-validation.service";
+export * from "./service/theme-config/theme-config.service";
+export * from "./service/css-validation/css-validation.service";

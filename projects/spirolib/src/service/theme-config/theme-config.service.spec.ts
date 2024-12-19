@@ -2,11 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ThemeConfigService } from './theme-config.service';
 import {_CssValidationService} from "spirolib";
-import {CssValidationServiceMock} from "../testing/CssValidationServiceMock";
-import {_CustomColorService} from "./custom-color.service";
-import {_CustomColorServiceMock} from "../testing/CustomColorServiceMock";
-
-
+import {_CustomColorService} from "../custom-color/custom-color.service";
 
 describe('ThemeConfigServiceService', () => {
   let service: ThemeConfigService;
@@ -14,8 +10,8 @@ describe('ThemeConfigServiceService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        { provide: _CssValidationService, useClass: CssValidationServiceMock },
-        { provide: _CustomColorService, useClass: _CustomColorServiceMock },
+        { provide: _CssValidationService, useClass: _CssValidationService },
+        { provide: _CustomColorService, useClass: _CustomColorService},
         ]
     });
     service = TestBed.inject(ThemeConfigService);

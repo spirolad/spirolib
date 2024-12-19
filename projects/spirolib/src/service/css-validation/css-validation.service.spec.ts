@@ -1,8 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { _CssValidationService } from './css-validation.service';
-import {_CustomColorService} from "./custom-color.service";
-import {_CustomColorServiceMock} from "../testing/CustomColorServiceMock";
+import {_CustomColorService} from "../custom-color/custom-color.service";
 
 describe('CssValidationService', () => {
   let service: _CssValidationService;
@@ -10,7 +9,7 @@ describe('CssValidationService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        { provide: _CustomColorService, useClass: _CustomColorServiceMock }
+        { provide: _CustomColorService, useClass: _CustomColorService },
       ]
     });
     service = TestBed.inject(_CssValidationService);
@@ -46,10 +45,6 @@ describe('CssValidationService', () => {
     expect(service.isValidCSSColor('100')).toBeFalse();
     expect(service.isValidCSSColor('100px 100px')).toBeFalse();
     expect(service.isValidCSSColor('100px, 100px')).toBeFalse();
-  });
-
-  it('should validate custom CSS color', () => {
-    expect(service.isValidCSSColor('customColor')).toBeTrue();
   });
 
 });

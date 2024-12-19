@@ -1,10 +1,15 @@
-import {_CustomColorService} from "../service/custom-color.service";
+import { Injectable } from '@angular/core';
+import {_CustomColorService} from "../custom-color/custom-color.service";
 
 const measurementValidator = /^\d+(\.\d+)?(px|em|rem|vw|vh|%|cm|mm|in|pt|pc)$/;
 const colorValidator = /^(#([0-9A-F]{3}|[0-9A-F]{6})|rgb\([0-9]+,[0-9]+,[0-9]+\)|rgba\([0-9]+,[0-9]+,[0-9]+,[0-9]+\))$/i;
 const fontValidator = /^(normal|italic|oblique|initial|inherit)$/;
 
-export class CssValidationServiceMock {
+@Injectable({
+  providedIn: 'root'
+})
+export class _CssValidationService {
+
   isValidCSSMeasurement(value: string): boolean {
     return measurementValidator.test(value);
   }
@@ -19,4 +24,5 @@ export class CssValidationServiceMock {
 
   constructor(private customColorService: _CustomColorService) {
   }
+
 }
