@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ThemeConfigService } from './theme-config.service';
-import {_CssValidationService} from "spirolib";
 import {_CustomColorService} from "../custom-color/custom-color.service";
+import {_CssValidationService} from "../css-validation/css-validation.service";
 
 describe('ThemeConfigServiceService', () => {
   let service: ThemeConfigService;
